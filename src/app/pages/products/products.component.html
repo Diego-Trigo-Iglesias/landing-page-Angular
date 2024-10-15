@@ -1,0 +1,21 @@
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Detalle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (product of productList; track $index) {<tr>
+            <th scope="row">{{product.id}}</th>
+            <td>{{product.title}}</td>
+            <td [ngClass]="{price: product.price > 140}">{{product.price | currency: 'EUR' }}</td>
+            <td>
+                <button type="button" class="btn btn-outline-secondary" (click)="goToDetail(product.id)">Detail</button>
+            </td>
+        </tr>}
+
+    </tbody>
+</table>
